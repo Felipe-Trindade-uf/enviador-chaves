@@ -29,8 +29,8 @@ if dados_colados.strip():
         linhas = tabela.split('\n')
 
         for i, linha in enumerate(linhas):
-            if i == 0 or i == len(linhas) - 1:
-                continue
+            # if i == 0 or i == len(linhas) - 1:
+            #     continue
         
             campos = linha.split('\t')
             if campos and not campos[-1].strip():
