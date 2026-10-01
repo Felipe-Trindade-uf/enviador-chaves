@@ -25,24 +25,24 @@ if dados_colados.strip():
             st.dataframe(df)
             
         # --- SEU CÓDIGO DO COLAB ENTRA AQUI ---
-linhas_em_branco = []
-linhas = tabela.split('\n')
+        linhas_em_branco = []
+        linhas = tabela.split('\n')
 
-for i, linha in enumerate(linhas):
-    if i == 0 or i == len(linhas) - 1:
-        continue
-
-    campos = linha.split('\t')
-    if campos and not campos[-1].strip():
-        linhas_em_branco.append((i + 1, linha))
-        if len(campos) > 6:
-          print("Retirada pelo:", campos[4],
-                "\nHorário da retirada:", campos[1],
-                "\nChave retirada:", campos[2],
-                "\nSIAPE/RA/RG:", campos[5],
-                "\nSetor:", campos[6],
-                "\nEntregador:", campos[7],
-                "\nDia:", campos[0],"\n")
+        for i, linha in enumerate(linhas):
+            if i == 0 or i == len(linhas) - 1:
+                continue
+        
+            campos = linha.split('\t')
+            if campos and not campos[-1].strip():
+                linhas_em_branco.append((i + 1, linha))
+                if len(campos) > 6:
+                  print("Retirada pelo:", campos[4],
+                        "\nHorário da retirada:", campos[1],
+                        "\nChave retirada:", campos[2],
+                        "\nSIAPE/RA/RG:", campos[5],
+                        "\nSetor:", campos[6],
+                        "\nEntregador:", campos[7],
+                        "\nDia:", campos[0],"\n")
         # --------------------------------------
         
         # 2. Exibição do Resultado
