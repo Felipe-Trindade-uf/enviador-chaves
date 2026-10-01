@@ -11,7 +11,7 @@ st.write("Selecione as células no Excel, copie (Ctrl+C) e cole na caixa abaixo.
 dados_colados = st.text_area(
     "Cole as células do Excel aqui:", 
     height=200, 
-    placeholder="Exemplo:\nColuna1\tColuna2\nDado1\tDado2"
+    placeholder="Exemplo:\n01.10.2026\t08:00\nDado1\tDado2"
 )
 
 # Só processa se o usuário tiver colado algo
@@ -21,7 +21,7 @@ if dados_colados.strip():
         df = pd.read_csv(io.StringIO(dados_colados), sep="\t", header=None)
         
         # Mostra uma prévia para o usuário ter certeza de que colou certo
-        with st.expander("🔍 Prévia dos dados identificados", expanded=False):
+        with st.expander("Prévia dos dados", expanded=False):
             st.dataframe(df)
             
         # --- SEU CÓDIGO DO COLAB ENTRA AQUI ---
