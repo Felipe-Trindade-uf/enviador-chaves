@@ -26,7 +26,7 @@ if dados_colados.strip():
             
         # --- SEU CÓDIGO DO COLAB ENTRA AQUI ---
         linhas_em_branco = []
-        linhas = tabela.split('\n')
+        linhas = df.split('\n')
 
         for i, linha in enumerate(linhas):
             # if i == 0 or i == len(linhas) - 1:
