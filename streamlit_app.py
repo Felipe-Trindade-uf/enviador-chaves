@@ -26,16 +26,14 @@ if dados_colados.strip():
             
         # --- SEU CÓDIGO DO COLAB ENTRA AQUI ---
 
+        texto_inicio = 'Boa Noite\nEu, xxx RE: venho através deste e-mail informar que todas as chaves foram entregues, com exceção das:'
+        texto_meio = ' que não foram entregues dentro do horário!\n\n'
         linhas_em_branco = []
         for i in range(len(df)):
           if df[9][i] != df[9][i]:
-              print("Retirada pelo:", df[4][i],
-                "\nHorário da retirada:", df[1][i],
-                "\nChave retirada:", df[2][i],
-                "\nSIAPE/RA/RG:", df[5][i],
-                "\nSetor:", df[6][i],
-                "\nEntregador:", df[7][i],
-                "\nDia:", df[0][i],"\n")
+            texto_inicio += f" {df[2][i]},"
+            texto_meio += f"Retirada pelo: {df[4][i]}\nHorário da retirada: {df[1][i]}\nChave retirada: {df[2][i]}\nSIAPE/RA/RG: {df[5][i]}\nSetor: {df[6][i]}\nEntregador: {df[7][i]}\nDia: {df[0][i]}\n\n"
+        texto_final = texto_inicio + texto_meio
 
         # --------------------------------------
         
