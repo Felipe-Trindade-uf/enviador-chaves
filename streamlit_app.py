@@ -3,28 +3,25 @@ import pandas as pd
 import io
 
 # Configuração da página web
-st.set_page_config(page_title="Processador Rápido de Planilhas", layout="centered")
-st.title("📋 Copiar & Colar do Excel")
-st.write("Selecione as células no Excel, copie (Ctrl+C) e cole na caixa abaixo.")
+st.set_page_config(page_title="Enviador de relatórios de chaves", layout="centered")
+st.title("Enviador de relatórios de chaves")
+st.write("Selecione as células no Excel, tendo certeza de começar logo pela primeira coluna e terminar com uma coluna que é vazia nas chaves faltantes (recomendo a do horário de entrega).\n Então copie (Ctrl+C) e cole na caixa abaixo.\n\n\n")
 
 # 1. Área de Texto para colar os dados do Excel
 dados_colados = st.text_area(
-    "Cole as células do Excel aqui:", 
-    height=200, 
-    placeholder="Exemplo:\n01.10.2026\t08:00\nDado1\tDado2"
+    "Cole as células aqui:", 
+    height="content", 
+    placeholder="Exemplo:\n01.10.2026\t08:00\tChave12\tJuninho Silva\t111111\tMorador\tJoão\n01.10.2026\t08:10\tChave43\tGalvão Bueno\t122211\tCEO\tJoão"
 )
 
 # Só processa se o usuário tiver colado algo
 if dados_colados.strip():
     try:
-        # O Excel separa colunas por TAB (\t). O StringIO simula um arquivo de texto na memória.
         df = pd.read_csv(io.StringIO(dados_colados), sep="\t", header=None)
         
         # Mostra uma prévia para o usuário ter certeza de que colou certo
         with st.expander("Prévia dos dados", expanded=False):
             st.dataframe(df)
-            
-        # --- SEU CÓDIGO DO COLAB ENTRA AQUI ---
 
         texto_inicio = 'Boa Noite\nEu, xxx RE: venho através deste e-mail informar que todas as chaves foram entregues, com exceção das:'
         texto_meio = ' que não foram entregues dentro do horário!\n\n'
@@ -38,10 +35,9 @@ if dados_colados.strip():
         # --------------------------------------
         
         # 2. Exibição do Resultado
-        st.subheader("✨ Texto Gerado:")
+        st.subheader("Email Gerado:")
         st.text_area("Resultado (pronto para copiar):", value=texto_final, height=250)
-        
-        st.info("💡 Dica: Passe o mouse sobre a caixa de texto acima e clique no ícone de duas folhas no canto superior direito para copiar tudo de uma vez.")
+        st.info("Clique no link abaixo para continuar o processo de enviar o e-mail:")
 
     except Exception as e:
         st.error(f"Erro ao processar os dados colados. Certifique-se de incluir o cabeçalho (nome das colunas). Detalhes: {e}")
