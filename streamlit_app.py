@@ -25,7 +25,6 @@ if dados_colados.strip():
 
         texto_inicio = 'Boa Noite\nEu, xxx RE: venho através deste e-mail informar que todas as chaves foram entregues, com exceção das:'
         texto_meio = ' que não foram entregues dentro do horário!\n\n'
-        linhas_em_branco = []
         for i in range(len(df)):
           if df[9][i] != df[9][i]:
             texto_inicio += f" {df[2][i]},"
