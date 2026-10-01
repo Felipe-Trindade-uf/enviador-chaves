@@ -18,7 +18,7 @@ dados_colados = st.text_area(
 if dados_colados.strip():
     try:
         # O Excel separa colunas por TAB (\t). O StringIO simula um arquivo de texto na memória.
-        df = pd.read_csv(io.StringIO(dados_colados), sep="\t")
+        df = pd.read_csv(io.StringIO(dados_colados), sep="\t", header=None)
         
         # Mostra uma prévia para o usuário ter certeza de que colou certo
         with st.expander("🔍 Prévia dos dados identificados", expanded=False):
