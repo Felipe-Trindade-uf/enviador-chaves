@@ -8,7 +8,7 @@ st.set_page_config(page_title="Enviador de relatórios de chaves", layout="cente
 st.title("Enviador de relatórios de chaves")
 st.write("Selecione as células no Excel, tendo certeza de começar logo pela primeira coluna e terminar com uma coluna que é vazia nas chaves faltantes (recomendo a do horário de entrega).")
 st.write("\n Então copie (Ctrl+C) e cole na caixa abaixo.")
-st.write("\nPor fim aberte ctrl+Enter.\n\n")
+st.write("\nPor fim aperte ctrl+Enter.\n\n")
 
 # 1. Área de Texto para colar os dados do Excel
 dados_colados = st.text_area(
