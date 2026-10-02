@@ -43,7 +43,7 @@ if dados_colados.strip():
 
         email_assunto = urllib.parse.quote("Central de chaves / Dia ")
         email_corpo = urllib.parse.quote(texto_final)
-        url_mailto = f"https://mail.google.com/mail/u/0/?fs=1&su={email_assunto}&body={email_corpo}&bcc=someone.else@example.com&tf=cm"
+        url_mailto = f"https://mail.google.com/mail/u/0/?fs=1&su={email_assunto}&body={email_corpo}&tf=cm"
         st.link_button("Ir para Gmail",url_mailto)
 
     except Exception as e:
