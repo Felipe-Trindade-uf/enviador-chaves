@@ -41,7 +41,7 @@ if dados_colados.strip():
         st.subheader("Email Gerado:")
         st.text_area("Resultado (pronto para copiar):", value=texto_final, height=250)
         st.info("Clique no link abaixo para continuar o processo de enviar o e-mail:")
-        data = datetime.now(timezone(timedelta(hours=-3))).strftime('%d/%m/%Y')
+        data = datetime.now(timezone(timedelta(hours=-3))).strftime('%d/%m/%y')
         assunto = f"Central de chaves Bloco - X / Dia {data}"
         email_assunto = urllib.parse.quote(assunto)
         email_corpo = urllib.parse.quote(texto_final)
