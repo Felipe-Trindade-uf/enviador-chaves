@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import urllib.parse
 import io
+from datetime import datetime,timezone,timedelta
 
 # Configuração da página web
 st.set_page_config(page_title="Enviador de relatórios de chaves", layout="centered")
@@ -41,7 +42,7 @@ if dados_colados.strip():
         st.text_area("Resultado (pronto para copiar):", value=texto_final, height=250)
         st.info("Clique no link abaixo para continuar o processo de enviar o e-mail:")
 
-        email_assunto = urllib.parse.quote("Central de chaves / Dia ")
+        email_assunto = urllib.parse.quote("Central de chaves Bloco - X / Dia ",datetime.now(timezone(timedelta(hours=-3))).strftime('%d/%m/%Y'))
         email_corpo = urllib.parse.quote(texto_final)
         url_mailto = f"https://mail.google.com/mail/u/0/?fs=1&su={email_assunto}&body={email_corpo}&tf=cm"
         st.link_button("Ir para Gmail",url_mailto)
