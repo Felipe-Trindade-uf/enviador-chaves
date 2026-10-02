@@ -42,7 +42,8 @@ if dados_colados.strip():
         st.text_area("Resultado (pronto para copiar):", value=texto_final, height=250)
         st.info("Clique no link abaixo para continuar o processo de enviar o e-mail:")
         data = datetime.now(timezone(timedelta(hours=-3))).strftime('%d/%m/%Y')
-        email_assunto = urllib.parse.quote("Central de chaves Bloco - X / Dia ",data)
+        assunto = f"Central de chaves Bloco - X / Dia {data}"
+        email_assunto = urllib.parse.quote(assunto)
         email_corpo = urllib.parse.quote(texto_final)
         url_mailto = f"https://mail.google.com/mail/u/0/?fs=1&su={email_assunto}&body={email_corpo}&tf=cm"
         st.link_button("Ir para Gmail",url_mailto)
