@@ -37,6 +37,7 @@ if dados_colados.strip():
         st.subheader("Email Gerado:")
         st.text_area("Resultado (pronto para copiar):", value=texto_final, height=250)
         st.info("Clique no link abaixo para continuar o processo de enviar o e-mail:")
+        st.link_button("Ir para Gmail",texto_final)
 
     except Exception as e:
         st.error(f"Erro ao processar os dados colados. Certifique-se de incluir o cabeçalho (nome das colunas). Detalhes: {e}")
