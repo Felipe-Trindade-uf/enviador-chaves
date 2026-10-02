@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import urllib.parse
 import io
 
 # Configuração da página web
@@ -37,7 +38,11 @@ if dados_colados.strip():
         st.subheader("Email Gerado:")
         st.text_area("Resultado (pronto para copiar):", value=texto_final, height=250)
         st.info("Clique no link abaixo para continuar o processo de enviar o e-mail:")
-        st.link_button("Ir para Gmail",texto_final)
+
+        email_assunto = urllib.parse.quote("Central de chaves / Dia ")
+        email_corpo = urllib.parse.quote(texto_final)
+        url_mailto = f"https://mail.google.com/mail/u/0/?fs=1&su={email_assunto}&body={email_corpo}&bcc=someone.else@example.com&tf=cm"
+        st.link_button("Ir para Gmail",url_mailto)
 
     except Exception as e:
         st.error(f"Erro ao processar os dados colados. Certifique-se de incluir o cabeçalho (nome das colunas). Detalhes: {e}")
