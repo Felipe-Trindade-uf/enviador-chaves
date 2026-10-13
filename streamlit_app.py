@@ -3,6 +3,7 @@ import pandas as pd
 import urllib.parse
 import io
 from datetime import datetime,timezone,timedelta
+import traceback
 
 # Configuração da página web
 st.set_page_config(page_title="Enviador de relatórios de chaves", layout="centered")
@@ -69,9 +70,11 @@ if dados_colados.strip():
         url_mailto = f"https://mail.google.com/mail/u/0/?fs=1&su={email_assunto}&body={email_corpo}&tf=cm"
         st.link_button("Ir para Gmail",url_mailto)
 
-    except ValueError as e:
-            st.error(f"É preciso de no mínimo dez colunas! {e}")
+    # except ValueError as e:
+    #         st.error(f"É preciso de no mínimo dez colunas! {e}")
     except Exception as e:
-            st.error(f"Erro ao processar os dados colados. Detalhes: {e}.\nTipo: {0}")
+            tipo_erro = type(e).__name__
+            st.error(f"Erro ao processar os dados colados. Detalhes: ")
+            traceback.print_exc()
 else:
     st.warning("Aguardando você colar os dados para iniciar o processamento.")
