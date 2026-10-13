@@ -21,18 +21,28 @@ dados_colados = st.text_area(
 # Só processa se o usuário tiver colado algo
 if dados_colados.strip():
     try:
+
+        NOME = 4
+        HORARIO = 1
+        CHAVE = 2
+        MATRICULA = 5
+        SETOR = 6
+        ENTREGADOR = 7
+        DIA = 0
+        HORARIO_ENTREGA = 9
+        
         df = pd.read_csv(io.StringIO(dados_colados), sep="\t", header=None)
         
         # Mostra uma prévia para o usuário ter certeza de que colou certo
         with st.expander("Prévia dos dados", expanded=False):
             st.dataframe(df)
 
-        texto_inicio = 'Boa Noite\nEu, xxx RE: venho através deste e-mail informar que todas as chaves foram entregues, com exceção das:'
+        texto_inicio = 'Boa Noite.\nEu, xxx RE: venho através deste e-mail informar que todas as chaves foram entregues, com exceção das:'
         texto_meio = ' que não foram entregues dentro do horário!\n\n'
         for i in range(len(df)):
-          if df[9][i] != df[9][i]:
-            texto_inicio += f" {df[2][i]},"
-            texto_meio += f"Retirada pelo: {df[4][i]}\nHorário da retirada: {df[1][i]}\nChave retirada: {df[2][i]}\nSIAPE/RA/RG: {df[5][i]}\nSetor: {df[6][i]}\nEntregador: {df[7][i]}\nDia: {df[0][i]}\n\n"
+          if df[HORARIO_ENTREGA][i] != df[HORARIO_ENTREGA][i]:
+            texto_inicio += f" {df[CHAVE][i]},"
+            texto_meio += f"Retirada pelo: {df[NOME][i]}\nHorário da retirada: {df[HORARIO][i]}\nChave retirada: {df[CHAVE][i]}\nSIAPE/RA/RG: {df[MATRICULA][i]}\nSetor: {df[SETOR][i]}\nEntregador: {df[ENTREGADOR][i]}\nDia: {df[DIA][i]}\n\n"
         texto_final = texto_inicio + texto_meio
 
         # --------------------------------------
@@ -49,6 +59,6 @@ if dados_colados.strip():
         st.link_button("Ir para Gmail",url_mailto)
 
     except Exception as e:
-        st.error(f"Erro ao processar os dados colados. Certifique-se de incluir o cabeçalho (nome das colunas). Detalhes: {e}")
+        st.error(f"Erro ao processar os dados colados. Detalhes: {e}")
 else:
     st.warning("Aguardando você colar os dados para iniciar o processamento.")
