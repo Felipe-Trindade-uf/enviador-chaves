@@ -69,6 +69,8 @@ if dados_colados.strip():
         url_mailto = f"https://mail.google.com/mail/u/0/?fs=1&su={email_assunto}&body={email_corpo}&tf=cm"
         st.link_button("Ir para Gmail",url_mailto)
 
+    except ValueError as e:
+            st.error(f"É preciso de no mínimo dez colunas! {e}")
     except Exception as e:
             st.error(f"Erro ao processar os dados colados. Detalhes: {e}.\nTipo: {0}")
 else:
