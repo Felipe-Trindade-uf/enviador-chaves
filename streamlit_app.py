@@ -70,9 +70,6 @@ if dados_colados.strip():
         st.link_button("Ir para Gmail",url_mailto)
 
     except Exception as e:
-        if "9" in str(e) == 9:
-            st.error(f"São necessárias {e} colunas.")
-        else:
-            st.error(f"Erro ao processar os dados colados. Detalhes: {e}")
+            st.error(f"Erro ao processar os dados colados. Detalhes: {e}.\nTipo: {0}")
 else:
     st.warning("Aguardando você colar os dados para iniciar o processamento.")
