@@ -29,7 +29,7 @@ if dados_colados.strip():
         SETOR = 6
         ENTREGADOR = 7
         DIA = 0
-        HORARIO_ENTREGA = 9
+        FOI_ENTREGUE = 9
         
         df = pd.read_csv(io.StringIO(dados_colados), sep="\t", header=None)
         
@@ -37,13 +37,22 @@ if dados_colados.strip():
         with st.expander("Prévia dos dados", expanded=False):
             st.dataframe(df)
 
-        texto_inicio = 'Boa Noite.\nEu, xxx RE: venho através deste e-mail informar que todas as chaves foram entregues, com exceção das:'
-        texto_meio = ' que não foram entregues dentro do horário!\n\n'
+        singular = 0
+        texto_inicio_p = 's:'
+        texto_inicio_s = 'Boa Noite.\nEu, xxx RE: venho através deste e-mail informar que todas as chaves foram entregues, com exceção da'
+        texto_meio_p = ' que não foram entregues dentro do horário!\n\n'
+        texto_meio_s = ' que não foi entregue dentro do horário!\n\n'
         for i in range(len(df)):
-          if df[HORARIO_ENTREGA][i] != df[HORARIO_ENTREGA][i]:
+          if df[FOI_ENTREGUE][i] != df[FOI_ENTREGUE][i]:
+            singular += 1
             texto_inicio += f" {df[CHAVE][i]},"
             texto_meio += f"Retirada pelo: {df[NOME][i]}\nHorário da retirada: {df[HORARIO][i]}\nChave retirada: {df[CHAVE][i]}\nSIAPE/RA/RG: {df[MATRICULA][i]}\nSetor: {df[SETOR][i]}\nEntregador: {df[ENTREGADOR][i]}\nDia: {df[DIA][i]}\n\n"
-        texto_final = texto_inicio + texto_meio
+
+        if singular >= 2:
+            texto_final = texto_inicio_s + texto_inicio_p + texto_meio_p
+        else:
+            texto_final = texto_inicio_s + texto_meio_s
+        
 
         # --------------------------------------
         
