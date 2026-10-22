@@ -27,7 +27,7 @@ if dados_colados.strip():
         CHAVE = 2
         MATRICULA = 5
         SETOR = 6
-        ENTREGADOR = 7
+        
         DIA = 0
         FOI_ENTREGUE = 9
         
@@ -36,6 +36,8 @@ if dados_colados.strip():
         # Mostra uma prévia para o usuário ter certeza de que colou certo
         with st.expander("Prévia dos dados", expanded=False):
             st.dataframe(df)
+        with st.expander("Definir colunas", expanded=False):
+            ENTREGADOR = st.number_input("7", min_value=0, value= 7)
 
         singular = 0
         chaves = ''
