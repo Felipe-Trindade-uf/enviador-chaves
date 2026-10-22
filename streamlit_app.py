@@ -28,14 +28,15 @@ if dados_colados.strip():
         with st.expander("Prévia dos dados", expanded=False):
             st.dataframe(df)
         with st.expander("Definir colunas", expanded=False):
-            NOME = st.number_input("Entregador", min_value=0, value= 4)
-            HORARIO = st.number_input("Horário", min_value=0, value= 1)
-            CHAVE = st.number_input("Chave", min_value=0, value= 2)
-            MATRICULA = st.number_input("Matricula", min_value=0, value= 5)
-            SETOR = st.number_input("Setor", min_value=0, value= 6)
-            ENTREGADOR = st.number_input("Entregador", min_value=0, value= 7)
-            DIA = st.number_input("Dia", min_value=0, value= 0)
-            FOI_ENTREGUE = st.number_input("Coluna que é vazia caso chave não tenha sido entregue", min_value=0, value= 9)
+            st.write("Em qual coluna está a informação desejada")
+            NOME = st.number_input("Entregador", min_value=0, value= 4, width= 10)
+            HORARIO = st.number_input("Horário", min_value=0, value= 1, width= 10)
+            CHAVE = st.number_input("Chave", min_value=0, value= 2, width= 10)
+            MATRICULA = st.number_input("Matricula", min_value=0, value= 5, width= 10)
+            SETOR = st.number_input("Setor", min_value=0, value= 6, width= 10)
+            ENTREGADOR = st.number_input("Entregador", min_value=0, value= 7, width= 10)
+            DIA = st.number_input("Dia", min_value=0, value= 0, width= 10)
+            FOI_ENTREGUE = st.number_input("Coluna que é vazia caso chave não tenha sido entregue", min_value=0, value= 9, width= 10)
 
         singular = 0
         chaves = ''
