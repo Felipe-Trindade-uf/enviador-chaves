@@ -44,13 +44,13 @@ if dados_colados.strip():
         chaves_bloco = ''
         texto_inicio_p = 's:'
         texto_inicio_s = 'Boa Noite.\nEu, xxx RE: venho através deste e-mail informar que todas as chaves foram entregues, com exceção da'
-        texto_meio_p = ' que não foram entregues dentro do horário!\n\n'
-        texto_meio_s = ' que não foi entregue dentro do horário!\n\n'
+        texto_meio_p = ' que não foram entregues dentro do horário!\n'
+        texto_meio_s = ' que não foi entregue dentro do horário!\n'
         for i in range(len(df)):
           if (df[CHAVE][i] == df[CHAVE][i]) and (df[FOI_ENTREGUE][i] != df[FOI_ENTREGUE][i]):
             singular += 1
             chaves += f" {df[CHAVE][i]},"
-            chaves_bloco += f"Retirada pelo: {df[NOME][i]}\nHorário da retirada: {df[HORARIO][i]}\nChave retirada: {df[CHAVE][i]}\nSIAPE/RA/RG: {df[MATRICULA][i]}\nSetor: {df[SETOR][i]}\nEntregador: {df[ENTREGADOR][i]}\nDia: {df[DIA][i]}\n\n"
+            chaves_bloco += f"\nRetirada pelo: {df[NOME][i]}\nHorário da retirada: {df[HORARIO][i]}\nChave retirada: {df[CHAVE][i]}\nSIAPE/RA/RG: {df[MATRICULA][i]}\nSetor: {df[SETOR][i]}\nEntregador: {df[ENTREGADOR][i]}\nDia: {df[DIA][i]}\n\n"
 
         if singular >= 2:
             texto_final = texto_inicio_s + texto_inicio_p + chaves + texto_meio_p + chaves_bloco
