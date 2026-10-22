@@ -21,15 +21,6 @@ dados_colados = st.text_area(
 # Só processa se o usuário tiver colado algo
 if dados_colados.strip():
     try:
-
-        NOME = 4
-        HORARIO = 1
-        CHAVE = 2
-        MATRICULA = 5
-        SETOR = 6
-        
-        DIA = 0
-        FOI_ENTREGUE = 9
         
         df = pd.read_csv(io.StringIO(dados_colados), sep="\t", header=None)
         
@@ -37,7 +28,14 @@ if dados_colados.strip():
         with st.expander("Prévia dos dados", expanded=False):
             st.dataframe(df)
         with st.expander("Definir colunas", expanded=False):
-            ENTREGADOR = st.number_input("7", min_value=0, value= 7)
+            NOME = st.number_input("Entregador", min_value=0, value= 4)
+            HORARIO = st.number_input("Horário", min_value=0, value= 1)
+            CHAVE = st.number_input("Chave", min_value=0, value= 2)
+            MATRICULA = st.number_input("Matricula", min_value=0, value= 5)
+            SETOR = st.number_input("Setor", min_value=0, value= 6)
+            ENTREGADOR = st.number_input("Entregador", min_value=0, value= 7)
+            DIA = st.number_input("Dia", min_value=0, value= 0)
+            FOI_ENTREGUE = st.number_input("Coluna que é vazia caso chave não tenha sido entregue", min_value=0, value= 9)
 
         singular = 0
         chaves = ''
