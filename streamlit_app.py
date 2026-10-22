@@ -28,7 +28,8 @@ if dados_colados.strip():
         with st.expander("Prévia dos dados", expanded=False):
             st.dataframe(df)
         with st.expander("Definir colunas", expanded=False):
-            st.write("Em qual coluna está a informação desejada.")
+            st.write("Definir em qual coluna está a informação desejada. Se precisar, use a prévia acima para referência!")
+            st.write("Obs: A coluna “Entregue” deve ficar em branco caso a chave não tenha sido entregue.")
             NOME = st.number_input("Entregador", min_value=0, value= 4, width= 200)
             HORARIO = st.number_input("Horário", min_value=0, value= 1, width= 200)
             CHAVE = st.number_input("Chave", min_value=0, value= 2, width= 200)
