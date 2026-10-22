@@ -45,7 +45,7 @@ if dados_colados.strip():
         texto_meio_p = ' que não foram entregues dentro do horário!\n\n'
         texto_meio_s = ' que não foi entregue dentro do horário!\n\n'
         for i in range(len(df)):
-          if (df[CHAVE][i] != df[CHAVE][i]) AND (df[FOI_ENTREGUE][i] != df[FOI_ENTREGUE][i]):
+          if (df[CHAVE][i] != df[CHAVE][i]) && (df[FOI_ENTREGUE][i] != df[FOI_ENTREGUE][i]):
             singular += 1
             chaves += f" {df[CHAVE][i]},"
             chaves_bloco += f"Retirada pelo: {df[NOME][i]}\nHorário da retirada: {df[HORARIO][i]}\nChave retirada: {df[CHAVE][i]}\nSIAPE/RA/RG: {df[MATRICULA][i]}\nSetor: {df[SETOR][i]}\nEntregador: {df[ENTREGADOR][i]}\nDia: {df[DIA][i]}\n\n"
