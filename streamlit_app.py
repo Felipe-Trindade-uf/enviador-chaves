@@ -41,6 +41,7 @@ if dados_colados.strip():
 
         singular = 0
         chaves = ''
+        chave_atual = ''
         chaves_bloco = ''
         texto_inicio_p = 's:'
         texto_inicio_s = 'Boa Noite.\nEu, xxx RE: venho através deste e-mail informar que todas as chaves foram entregues, com exceção da'
