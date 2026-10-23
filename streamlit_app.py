@@ -51,7 +51,7 @@ if dados_colados.strip():
             singular += 1
             if chaves == '':
                 pass
-            elif singular == 1:
+            elif singular == 2:
                 chaves += f" {chave_atual}"
             else:
                 chaves += f", {chave_atual}"
