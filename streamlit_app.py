@@ -51,15 +51,17 @@ if dados_colados.strip():
             singular += 1
             if chaves == '':
                 pass
+            elif singular == 1:
+                chaves += f" {chave_atual}"
             else:
-                chaves += f" {chave_atual},"
+                chaves += f", {chave_atual}"
             chave_atual = df[CHAVE][i]
             chaves_bloco += f"\nRetirada pelo: {df[NOME][i]}\nHorário da retirada: {df[HORARIO][i]}\nChave retirada: {df[CHAVE][i]}\nSIAPE/RA/RG: {df[MATRICULA][i]}\nSetor: {df[SETOR][i]}\nEntregador: {df[ENTREGADOR][i]}\nDia: {df[DIA][i]}\n"
         
         if singular >= 2:
-            texto_final = texto_inicio_s + texto_inicio_p + chaves + " e " + chave_atual + texto_meio_p + chaves_bloco
+            texto_final = texto_inicio_s + texto_inicio_p + chaves + f" e {chave_atual}," + texto_meio_p + chaves_bloco
         else:
-            texto_final = texto_inicio_s + " " + chave_atual + "," + texto_meio_s + chaves_bloco
+            texto_final = texto_inicio_s + f" {chave_atual}" + texto_meio_s + chaves_bloco
         
 
         # --------------------------------------
