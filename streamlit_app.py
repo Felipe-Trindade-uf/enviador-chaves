@@ -50,7 +50,7 @@ if dados_colados.strip():
           if (df[CHAVE][i] == df[CHAVE][i]) and (df[FOI_ENTREGUE][i] != df[FOI_ENTREGUE][i]):
             singular += 1
             if chaves == '':
-                continue
+                pass
             else:
                 chaves += f" {chave_atual},"
             chave_atual = df[CHAVE][i]
