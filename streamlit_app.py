@@ -59,7 +59,7 @@ if dados_colados.strip():
         if singular >= 2:
             texto_final = texto_inicio_s + texto_inicio_p + chaves + " e " + chave_atual + texto_meio_p + chaves_bloco
         else:
-            texto_final = texto_inicio_s + chaves + texto_meio_s + chaves_bloco
+            texto_final = texto_inicio_s + f" {chave_atual}," + texto_meio_s + chaves_bloco
         
 
         # --------------------------------------
