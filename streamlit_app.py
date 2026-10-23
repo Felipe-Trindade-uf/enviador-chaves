@@ -50,14 +50,14 @@ if dados_colados.strip():
           if (df[CHAVE][i] == df[CHAVE][i]) and (df[FOI_ENTREGUE][i] != df[FOI_ENTREGUE][i]):
             singular += 1
             if chaves == '':
-                chaves += f" {df[CHAVE][i]},"
+                continue
             else:
-                chaves += chave_atual
-            chave_atual = f" {df[CHAVE][i]},"
+                chaves += f" {chave_atual},"
+            chave_atual = df[CHAVE][i]
             chaves_bloco += f"\nRetirada pelo: {df[NOME][i]}\nHorário da retirada: {df[HORARIO][i]}\nChave retirada: {df[CHAVE][i]}\nSIAPE/RA/RG: {df[MATRICULA][i]}\nSetor: {df[SETOR][i]}\nEntregador: {df[ENTREGADOR][i]}\nDia: {df[DIA][i]}\n"
         
         if singular >= 2:
-            texto_final = texto_inicio_s + texto_inicio_p + chaves + "e" + chave_atual + texto_meio_p + chaves_bloco
+            texto_final = texto_inicio_s + texto_inicio_p + chaves + " e " + chave_atual + texto_meio_p + chaves_bloco
         else:
             texto_final = texto_inicio_s + chaves + texto_meio_s + chaves_bloco
         
